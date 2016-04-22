@@ -1,0 +1,29 @@
+body{
+	font-family: Lato,"Helvetica Neue",Arial,Helvetica,sans-serif;
+	margin: 0;
+	font-size: 12px;
+	padding: 0 20px;
+	color: #444 !important;
+}	
+.page-header{margin: 0;color: #66bb6a;}
+.page-header img{width: 94px;}
+.label.disabled{
+	pointer-events: none;
+   cursor: default;
+   opacity: 0.4;
+}
+.h3, h3 {
+    color: #111;
+    font-size: 18px;
+    font-style: italic;
+}
+.h4, h4 {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.label{
+	display: inline-block;
+	margin: 5px;
+	line-height: 1.4;
+}
