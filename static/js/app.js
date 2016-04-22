@@ -73,13 +73,8 @@ app.controller('discussionController',['$rootScope', '$scope', function($rootSco
 
 }]);
 
-app.directive('comment', function () {
-  return {
-      restrict: "E",
-      replace: true,
-      scope: {
-          collection: '='
-      },
-      template: "static/templates/comments.html"
-  }
-})
+app.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});

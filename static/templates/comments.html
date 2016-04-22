@@ -16,7 +16,8 @@
 			  		</div>
 			  	</form>
 	  			<!-- child comments -->
-	  			<div class="panel panel-default" ng-repeat="cc in comment.comments" ng-include="'static/templates/comments.html'" ng-init="level = level + 1">
+	  			<div class="panel panel-default" ng-repeat="cc in comment.comments">
+	  				<div ng-include="'static/templates/comments.html'"></div>
   					
   				</div>
 	  		</div>

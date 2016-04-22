@@ -40,7 +40,7 @@
 	  		</div>
 	  	</form>
   		<!-- comments -->
-  		<div class="panel panel-default" ng-repeat="comment in disc.comments" ng-include="'static/templates/comments.html'" >
+  		<div class="panel panel-default" ng-repeat="comment in disc.comments | reverse" ng-include="'static/templates/comments.html'" >
   
   		</div>
   	</div>
