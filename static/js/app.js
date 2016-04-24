@@ -19,7 +19,6 @@ app.controller('discussionController',['$rootScope', '$scope', function($rootSco
 	
 	$scope.reinit = function(){
 		$scope.newComment = {};
-		$scope.level = 1;
 		$scope.newChildComment = {};
 		$scope.updateInput = false;
 		$scope.showReplyBox = false;
@@ -73,13 +72,22 @@ app.controller('discussionController',['$rootScope', '$scope', function($rootSco
 	localStorage.setItem('discussionList', angular.toJson($scope.discussionList));
 
 	$scope.addCommentDisc = function(disc, cc){
-		disc.comments.push({
-			name:cc.name,
-			comment:cc.comment
-		});
-		$scope.reinit();
-		localStorage.setItem('discussionList', angular.toJson($scope.discussionList));
-		return disc;
+		if(!('comments' in disc)){disc['comments']= [];}
+		if(('name' in cc) && ('comment' in cc) && cc.name.length && cc.comment.length){
+			disc.comments.push({
+				name:cc.name,
+				comment:cc.comment
+			});
+				$scope.newComment = {};
+				$scope.newChildComment = {};
+				$scope.updateInput = false;
+				$scope.showReplyBox = false;
+			localStorage.setItem('discussionList', angular.toJson($scope.discussionList));
+			return disc;
+		} 
+		else{
+			return false;
+		}
 	}
 
 	$scope.updateDiscussionList = function(disc){
